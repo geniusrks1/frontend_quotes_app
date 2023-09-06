@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import MainNavigation from './components/MainNavigation/MainNavigation'
+import { Route, Routes } from 'react-router-dom'
+import AllQuotes from './components/pages/AllQuotes'
+import NewQuote from './components/pages/NewQuote'
+import ShowQuote from './components/pages/ShowQuote'
+import EditQuote from './components/pages/EditQuote'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <MainNavigation/>
+
+      <Routes>
+        <Route path='/' element={<AllQuotes/>}></Route>
+        <Route path='/new' element={<NewQuote/>}></Route>
+        <Route path='/quotes/:id' element={<ShowQuote/>}></Route>
+        <Route path='/quotes/:id/edit' element={<EditQuote/>}></Route>
+      </Routes>
+    </>
+  )
 }
 
-export default App;
+export default App
